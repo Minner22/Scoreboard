@@ -54,7 +54,7 @@ The project consists of the following classes:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Minner22/Scoreboard
+   git clone https://github.com/Minner22/Scoreboard.git
 2. Navigate to the project directory:
    ```bash
    cd Scoreboard
