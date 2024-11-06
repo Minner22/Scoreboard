@@ -18,5 +18,12 @@ public class Scoreboard {
     }
 
     public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
+        games.stream()
+                .filter(game -> game.getHomeTeam().equals(homeTeam) && game.getAwayTeam().equals(awayTeam))
+                .findFirst()
+                .ifPresent(game -> {
+                    game.setHomeScore(homeScore);
+                    game.setAwayScore(awayScore);
+                });
     }
 }

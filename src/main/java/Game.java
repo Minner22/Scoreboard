@@ -34,4 +34,9 @@ public class Game {
     public void setAwayScore(int awayScore) {
         this.awayScore = awayScore;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s %d - %s %d",homeTeam, homeScore, awayTeam, awayScore);
+    }
 }
