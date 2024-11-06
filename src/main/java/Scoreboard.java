@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Scoreboard {
 
@@ -14,7 +15,9 @@ public class Scoreboard {
     }
 
     public List<Game> getSummary() {
-        return games;
+        return games.stream()
+                .sorted(new GameComparator())
+                .collect(Collectors.toList());
     }
 
     public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
