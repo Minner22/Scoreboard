@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class ScoreboardTest {
@@ -41,6 +43,21 @@ public class ScoreboardTest {
         assertEquals(homeScore, game.getHomeScore());
         assertEquals(awayScore, game.getAwayScore());
         assertEquals("Mexico 2 - Canada 3", game.toString());
+    }
+
+    @Test
+    public void testFinishGame() {
+        scoreboard.startGame("Mexico", "Canada");
+
+        List<Game> games = scoreboard.getSummary();
+
+        assertFalse(games.isEmpty());
+
+        scoreboard.finishGame("Mexico", "Canada");
+
+        games = scoreboard.getSummary();
+
+        assertTrue(games.isEmpty());
     }
 
 }

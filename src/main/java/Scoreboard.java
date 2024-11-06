@@ -26,4 +26,7 @@ public class Scoreboard {
                     game.setAwayScore(awayScore);
                 });
     }
+
+    public void finishGame(String homeTeam, String awayTeam) {
+    }
 }
