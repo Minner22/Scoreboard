@@ -10,6 +10,7 @@ public class Scoreboard {
     }
 
     public void startGame(String homeTeam, String awayTeam) {
+        games.add(new Game(homeTeam, awayTeam, 0, 0));
     }
 
     public List<Game> getSummary() {
