@@ -60,4 +60,28 @@ public class ScoreboardTest {
         assertTrue(games.isEmpty());
     }
 
+    @Test
+    public void testGetSummary() {
+        scoreboard.startGame("Mexico", "Canada");
+        scoreboard.startGame("Spain", "Brazil");
+        scoreboard.startGame("Germany", "France");
+        scoreboard.startGame("Uruguay", "Italy");
+        scoreboard.startGame("Argentina", "Australia");
+
+        scoreboard.updateScore("Mexico", "Canada", 0, 5);
+        scoreboard.updateScore("Spain", "Brazil", 10, 2);
+        scoreboard.updateScore("Germany", "France", 2, 2);
+        scoreboard.updateScore("Uruguay", "Italy", 6, 6);
+        scoreboard.updateScore("Argentina", "Australia", 3, 1);
+
+        List<Game> gameSummaries = scoreboard.getSummary();
+
+        assertFalse(gameSummaries.isEmpty());
+        assertEquals("Uruguay 6 - Italy 6", gameSummaries.get(0).toString());
+        assertEquals("Spain 10 - Brazil 2", gameSummaries.get(1).toString());
+        assertEquals("Mexico 0 - Canada 5", gameSummaries.get(2).toString());
+        assertEquals("Argentina 3 - Australia 1", gameSummaries.get(3).toString());
+        assertEquals("Germany 2 - France 2", gameSummaries.get(4).toString());
+    }
+
 }
