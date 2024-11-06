@@ -16,4 +16,7 @@ public class Scoreboard {
     public List<Game> getSummary() {
         return games;
     }
+
+    public void updateScore(String homeTeam, String awayTeam, int homeScore, int awayScore) {
+    }
 }

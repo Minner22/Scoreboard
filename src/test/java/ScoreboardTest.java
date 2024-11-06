@@ -17,10 +17,30 @@ public class ScoreboardTest {
         scoreboard.startGame("Mexico", "Canada");
 
         assertEquals(1, scoreboard.getSummary().size());
-        assertEquals("Mexico", scoreboard.getSummary().getFirst().getHomeTeam());
-        assertEquals("Canada", scoreboard.getSummary().getFirst().getAwayTeam());
-        assertEquals(0, scoreboard.getSummary().getFirst().getHomeScore());
-        assertEquals(0, scoreboard.getSummary().getFirst().getAwayScore());
+
+        Game game = scoreboard.getSummary().getFirst();
+
+        assertEquals("Mexico", game.getHomeTeam());
+        assertEquals("Canada", game.getAwayTeam());
+        assertEquals(0, game.getHomeScore());
+        assertEquals(0, game.getAwayScore());
+    }
+
+    @Test
+    public void testUpdateScore() {
+        int homeScore = 2;
+        int awayScore = 3;
+
+        scoreboard.startGame("Mexico", "Canada");
+        scoreboard.updateScore("Mexico", "Canada", homeScore, awayScore);
+
+        assertEquals(1, scoreboard.getSummary().size());
+
+        Game game = scoreboard.getSummary().getFirst();
+
+        assertEquals(homeScore, game.getHomeScore());
+        assertEquals(awayScore, game.getAwayScore());
+        assertEquals("Mexico 2 - Canada 3", game.toString());
     }
 
 }
