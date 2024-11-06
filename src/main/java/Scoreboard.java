@@ -28,5 +28,6 @@ public class Scoreboard {
     }
 
     public void finishGame(String homeTeam, String awayTeam) {
+        games.removeIf(game -> game.getHomeTeam().equals(homeTeam) && game.getAwayTeam().equals(awayTeam));
     }
 }

@@ -48,15 +48,15 @@ public class ScoreboardTest {
     @Test
     public void testFinishGame() {
         scoreboard.startGame("Mexico", "Canada");
-
         List<Game> games = scoreboard.getSummary();
+        assertFalse(games.isEmpty());
 
+        scoreboard.finishGame("Mexico", "England");
+        games = scoreboard.getSummary();
         assertFalse(games.isEmpty());
 
         scoreboard.finishGame("Mexico", "Canada");
-
         games = scoreboard.getSummary();
-
         assertTrue(games.isEmpty());
     }
 
